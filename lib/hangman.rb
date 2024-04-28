@@ -105,6 +105,9 @@ class Hangman
   end
 
   def render_game
+    # Wow, this way you can clear the console
+    print `clear`
+
     puts " "
     puts "Guess the word:\t\t#{guessed_word.split("").join(" ")}"
   end
