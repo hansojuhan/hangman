@@ -1,0 +1,5 @@
+--- !ruby/object:Hangman
+remaining_guesses: 4
+secret_word: indians
+guessed_word: i__ia__
+last_guess: o

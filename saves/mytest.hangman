@@ -1,0 +1,5 @@
+--- !ruby/object:Hangman
+remaining_guesses: 6
+secret_word: automobiles
+guessed_word: a__o_o_i_e_
+last_guess: i

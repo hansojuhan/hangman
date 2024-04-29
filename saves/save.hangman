@@ -1,0 +1,5 @@
+--- !ruby/object:Hangman
+remaining_guesses: 6
+secret_word: portable
+guessed_word: ____a__e
+last_guess: e

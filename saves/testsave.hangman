@@ -1,0 +1,5 @@
+--- !ruby/object:Hangman
+remaining_guesses: 6
+secret_word: tsau
+guessed_word: ____
+last_guess: ''
