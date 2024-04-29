@@ -9,6 +9,57 @@ class Hangman
   ALPHABET = "abcdefghijklmnopqrstuvwxyz"
   # Savegame path
   SAVE_PATH = Dir.pwd + '/saves'
+  # The man
+  HANGMANPICS = ['''
+    +---+
+    |   |
+        |
+        |
+        |
+        |
+  =========''', '''
+    +---+
+    |   |
+    O   |
+        |
+        |
+        |
+  =========''', '''
+    +---+
+    |   |
+    O   |
+    |   |
+        |
+        |
+  =========''', '''
+    +---+
+    |   |
+    O   |
+   /|   |
+        |
+        |
+  =========''', '''
+    +---+
+    |   |
+    O   |
+   /|\  |
+        |
+        |
+  =========''', '''
+    +---+
+    |   |
+    O   |
+   /|\  |
+   /    |
+        |
+  =========''', '''
+    +---+
+    |   |
+    O   |
+   /|\  |
+   / \  |
+        |
+  =========''']
 
   def initialize
     # Total amount player can guess wrong
@@ -23,13 +74,17 @@ class Hangman
   end
 
   def print_intro_screen
-    print `clear` << "Welcome to Hangman!\n---\nCreated by hje\nApril 2024\n\n(N) New game\t\t(L) Load game\t\t(Q) Quit\n\nChoose: "
+    print `clear`
+    hang_the_man(6)
+    print"\nWelcome to Hangman!\n---\nCreated by hje\nApril 2024\n\n(N) New game\t\t(L) Load game\t\t(Q) Quit\n\nChoose: "
+  end
+
+  def hang_the_man(number)
+    puts HANGMANPICS[number]
   end
 
   def main_menu
-    
     loop do
-      
       # Ask user to load game, if they wish
       print_intro_screen
 
@@ -58,7 +113,6 @@ class Hangman
   end
 
   def start
-
     #Start with main menu
     main_menu
 
@@ -94,7 +148,10 @@ class Hangman
           render_game
           puts "\n\nWord was: #{secret_word}! You won!"
         else
+          render_game
           puts "Too bad, you hanged the man!"
+          gets
+          start
         end
       end
     end
@@ -216,7 +273,7 @@ class Hangman
   end
 
   def game_over?
-    remaining_guesses == 0 || guessed_word.include?("_") == false
+    remaining_guesses <= 0 || guessed_word.include?("_") == false
   end
 
   def game_won?
@@ -272,6 +329,7 @@ class Hangman
     # Wow, this way you can clear the console
     print `clear`
 
+    hang_the_man(6 - remaining_guesses)
     puts " "
     puts "Guess the word:\t\t#{guessed_word.split("").join(" ")}"
   end
@@ -292,5 +350,4 @@ end
 
 game = Hangman.new
 game.start
-# # game.load_game
-# game.save_game
+

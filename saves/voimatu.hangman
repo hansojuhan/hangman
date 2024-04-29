@@ -1,0 +1,5 @@
+--- !ruby/object:Hangman
+remaining_guesses: 1
+secret_word: relying
+guessed_word: re_____
+last_guess: p
