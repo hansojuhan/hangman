@@ -149,7 +149,7 @@ class Hangman
           puts "\n\nWord was: #{secret_word}! You won!"
         else
           render_game
-          puts "Too bad, you hanged the man!"
+          puts "\nYou lost! The word was: #{secret_word.split("").join(" ")}"
           gets
           start
         end
